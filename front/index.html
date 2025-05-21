@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>레스토랑 예약 시스템</title>
+</head>
+<body>
+  <h1>레스토랑 예약 시스템</h1>
+
+  <div>
+    <h3>로그인 / 회원가입</h3>
+    <input id="username" placeholder="아이디" />
+    <input id="password" type="password" placeholder="비밀번호" />
+    <button onclick="login()">로그인</button>
+    <button onclick="signup()">회원가입</button>
+    <button onclick="logout()">로그아웃</button>
+  </div>
+
+  <hr>
+
+  <div>
+    <h3>테이블 예약 필터</h3>
+    <label>시간대:
+      <select id="time_slot">
+        <option value="lunch">점심</option>
+        <option value="dinner">저녁</option>
+      </select>
+    </label><br>
+    <label>위치:
+      <select id="location"></select>
+    </label><br>
+    <label>수용 인원:
+      <select id="capacity"></select>
+    </label><br>
+    <button onclick="loadTables()">테이블 보기</button>
+  </div>
+
+  <h3>가능한 테이블</h3>
+  <ul id="tables"></ul>
+
+  <div id="datetime-form" style="display:none;">
+    <h3>날짜 및 시간 선택</h3>
+    <label>날짜: <input type="date" id="date" /></label><br>
+    <label>시간 선택:
+      <select id="time_list"></select>
+    </label><br>
+    <button onclick="confirmDateTime()">확정</button>
+  </div>
+
+  <div id="form" style="display:none;">
+    <h3>예약 정보 입력</h3>
+    <input placeholder="이름" id="name" /><br>
+    <input placeholder="전화번호" id="phone" /><br>
+    <input placeholder="카드번호" id="card" /><br>
+    <input type="number" placeholder="총 인원" id="party" /><br>
+    <button onclick="submitReservation()">예약하기</button>
+  </div>
+
+  <h3>내 예약 내역</h3>
+  <ul id="reservations"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
