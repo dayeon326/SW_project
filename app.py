@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 app.secret_key = 'secret-key'
-CORS(app)
+CORS(app, supports_credentials=True) #쿠키 설정
 
 DB = 'restaurant.db'
 
