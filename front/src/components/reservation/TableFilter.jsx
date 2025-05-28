@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function TableFilter({ onTablesLoaded, onSearch }) {
   const [locations, setLocations] = useState([]);
   const [capacities, setCapacities] = useState([]);
-  const [period, setPeriod] = useState('lunch');
+  const [period, setPeriod] = useState('');
   const [location, setLocation] = useState('');
   const [capacity, setCapacity] = useState('');
 
@@ -40,14 +40,17 @@ function TableFilter({ onTablesLoaded, onSearch }) {
         <option value="lunch">점심</option>
         <option value="dinner">저녁</option>
       </select>
+
       <select value={location} onChange={(e) => setLocation(e.target.value)}>
         <option value="">선택</option>
         {locations.map(l => <option key={l} value={l}>{l}</option>)}
       </select>
+
       <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
         <option value="">선택</option>
         {capacities.map(c => <option key={c} value={c}>{c}인</option>)}
       </select>
+
       <button onClick={handleSubmit}>테이블 보기</button>
     </div>
   );
