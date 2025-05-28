@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Header from '../layout/Header';
 
 function DateTimePage() {
   const { state } = useLocation(); // table_id, time_slot_id 받기
@@ -31,23 +32,26 @@ function DateTimePage() {
   };
 
   return (
-    <div>
-      <h2>날짜 및 시간 선택</h2>
-      <label>
-        날짜:
-        <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        시간:
-        <select value={hour} onChange={e => setHour(e.target.value)}>
-          <option value="">선택</option>
-          {timeOptions()}
-        </select>
-      </label>
-      <br />
-      <button onClick={handleConfirm}>확정</button>
-    </div>
+    <>
+      <Header />
+      <div style={{ padding: '20px' }}>
+        <h2>날짜 및 시간 선택</h2>
+        <label>
+          날짜:
+          <input type="date" value={date} onChange={e => setDate(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          시간:
+          <select value={hour} onChange={e => setHour(e.target.value)}>
+            <option value="">선택</option>
+            {timeOptions()}
+          </select>
+        </label>
+        <br />
+        <button onClick={handleConfirm}>확정</button>
+      </div>
+    </>
   );
 }
 

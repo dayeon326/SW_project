@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import TableFilter from '../components/reservation/TableFilter';
 import TableList from '../components/reservation/TableList';
+import Header from '../layout/Header';
 
 function TablePage() {
   const [tables, setTables] = useState([]);
@@ -29,6 +30,7 @@ function TablePage() {
 
   return (
     <div>
+      <Header />
       <h2>테이블 예약</h2>
       <TableFilter 
       onTablesLoaded={handleTablesLoaded}
