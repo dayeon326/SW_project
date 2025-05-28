@@ -33,7 +33,6 @@ function ReservationList() {
 
   return (
     <div>
-      <h3>내 예약 내역</h3>
       {reservations.length === 0 ? (
         <p>예약 내역이 없습니다.</p>
       ) : (

@@ -8,10 +8,13 @@ function TablePage() {
   const [timeSlotId, setTimeSlotId] = useState(null);
   const navigate = useNavigate();
 
+  const [hasSearch, setHasSearch] = useState(false);
+
   // 필터 완료 시
   const handleTablesLoaded = (loaded, slot) => {
     setTables(loaded);
     setTimeSlotId(slot);
+    setHasSearch(true);
   };
 
   // 테이블 선택 시 → 날짜/시간 선택 페이지로 이동
@@ -27,8 +30,15 @@ function TablePage() {
   return (
     <div>
       <h2>테이블 예약</h2>
-      <TableFilter onTablesLoaded={handleTablesLoaded} />
-      <TableList tables={tables} onSelectTable={handleSelectTable} />
+      <TableFilter 
+      onTablesLoaded={handleTablesLoaded}
+      onSearch={()=>setHasSearch(true)}
+      />
+      <TableList 
+      tables={tables}
+      onSelectTable={handleSelectTable}
+      hasSearched={hasSearch}
+      />
     </div>
   );
 }

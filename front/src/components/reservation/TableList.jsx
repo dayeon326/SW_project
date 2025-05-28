@@ -1,6 +1,8 @@
 import React from 'react';
 
-function TableList({ tables, onSelectTable }) {
+function TableList({ tables, onSelectTable, hasSearched }) {
+  if (!hasSearched) return null; 
+
   if (!tables || tables.length === 0) {
     return <p>예약 가능한 테이블이 없습니다.</p>;
   }

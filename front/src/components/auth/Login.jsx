@@ -24,7 +24,6 @@ function Login({ onLoginSuccess }) {
 
   return (
     <div>
-      <h3>로그인</h3>
       <input
         value={username}
         onChange={(e) => setUsername(e.target.value)}

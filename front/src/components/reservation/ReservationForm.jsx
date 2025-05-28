@@ -44,7 +44,6 @@ function ReservationForm({ selected }) {
 
   return (
     <div>
-      <h3>예약 정보 입력</h3>
       <input
         type="text"
         placeholder="이름"

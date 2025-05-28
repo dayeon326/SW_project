@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function TableFilter({ onTablesLoaded }) {
+function TableFilter({ onTablesLoaded, onSearch }) {
   const [locations, setLocations] = useState([]);
   const [capacities, setCapacities] = useState([]);
   const [period, setPeriod] = useState('lunch');
@@ -30,19 +30,22 @@ function TableFilter({ onTablesLoaded }) {
     const tables = await res.json();
     if (!tables.length) return alert('해당 조건에 테이블 없음');
     onTablesLoaded(tables, time_slot_id);
+    onSearch({ period, location, capacity });
   };
 
   return (
     <div>
-      <h3>테이블 예약 필터</h3>
       <select value={period} onChange={(e) => setPeriod(e.target.value)}>
+        <option value="">선택</option>
         <option value="lunch">점심</option>
         <option value="dinner">저녁</option>
       </select>
       <select value={location} onChange={(e) => setLocation(e.target.value)}>
+        <option value="">선택</option>
         {locations.map(l => <option key={l} value={l}>{l}</option>)}
       </select>
       <select value={capacity} onChange={(e) => setCapacity(e.target.value)}>
+        <option value="">선택</option>
         {capacities.map(c => <option key={c} value={c}>{c}인</option>)}
       </select>
       <button onClick={handleSubmit}>테이블 보기</button>
